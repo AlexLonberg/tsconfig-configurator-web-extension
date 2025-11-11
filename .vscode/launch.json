@@ -1,0 +1,45 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch JS File",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${file}",
+      "outFiles": [
+        "${workspaceFolder}/**/*.js",
+        "${workspaceFolder}/**/*.ts"
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Launch Chrome",
+      "request": "launch",
+      "type": "chrome",
+      // Указываем порт явно в vite.config.ts и копируем сюда
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/src",
+      "skipFiles": [
+        // Было по умолчанию - для эксперимента можно заккоментировать
+        "<node_internals>/**",
+        "**/node_modules/**",
+        "**/@vite/**"
+      ],
+      // Можно указать абсолютны путь, например: "C:/<absolute-path>/chrome.exe",
+      "runtimeExecutable": "stable", // Откроется Chrome
+      "runtimeArgs": [
+        "--remote-debugging-port=9222",
+        // Создаем пользовательский каталог во временной .temp
+        "--user-data-dir=${workspaceFolder}/.temp/user-data",
+        // DOC Полезная памятка по аргументам Chrome https://peter.sh/experiments/chromium-command-line-switches/
+        "--auto-open-devtools-for-tabs" // Автоматически открыть devtools
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "noEmit": true,
+    "outDir": "./.temp/.dist",
+    "tsBuildInfoFile": "./.temp/.tsbuildinfo_dist",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "moduleDetection": "force",
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "isolatedModules": true,
+    "noImplicitThis": true,
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable",
+    ],
+    "types": [],
+    "typeRoots": []
+  },
+  "typeAcquisition": {
+    "disableFilenameBasedTypeAcquisition": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue"
+  ],
+  "exclude": []
+}

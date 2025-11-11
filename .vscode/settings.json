@@ -1,0 +1,53 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/node_modules": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    ".vscode/": true,
+    ".temp/": true,
+    "assets/": true,
+    "dist/": true,
+    "typescriptlang/": true,
+    "**/*.json": true,
+  },
+  "googleSearchContextMenu.items": {
+    "MDNWeb": {
+      "enabled": true
+    }
+  },
+  "vsicons.associations.folders": [
+    {
+      "icon": "public",
+      "extensions": [
+        "typescriptlang"
+      ],
+      "format": "svg"
+    }
+  ],
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "html.format.wrapAttributes": "force-aligned",
+  "eslint.runtime": "node",
+  "eslint.useESLintClass": true,
+  "eslint.codeActionsOnSave.mode": "problems",
+  // Отключаем действия для правил удаляющих код при форматировании. Если выше включен mode:"problems" - эта настройка игнорируется.
+  // !rule - off
+  // *     - on
+  "eslint.codeActionsOnSave.rules": [
+    "!no-unused-vars",
+    "!@typescript-eslint/no-unused-vars",
+    "*"
+  ],
+  "editor.codeActionsOnSave": {
+    "editor.formatOnSave": "explicit",
+    "source.fixAll": "explicit"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": [
+    "jsxdev",
+    "labelledby"
+  ]
+}

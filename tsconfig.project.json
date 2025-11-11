@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true,
+    "outDir": "./.temp/.project",
+    "tsBuildInfoFile": "./.temp/.tsbuildinfo_project",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "lib": [
+      "ESNext"
+    ],
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "scripts/**/*.ts",
+    "eslint.config.js",
+    "vite.config.ts"
+  ],
+  "exclude": []
+}

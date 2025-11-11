@@ -1,0 +1,41 @@
+{
+  "name": "tsconfig-configurator-web-extension",
+  "version": "1.0.0",
+  "description": "TSConfig Configurator (typescriptlang.org)",
+  "author": "Alexander Lonberg <alexlonberg@gmail.com>",
+  "homepage": "https://github.com/AlexLonberg/tsconfig-configurator-web-extension",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexLonberg/tsconfig-configurator-web-extension.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "tsconfig",
+    "web-extension"
+  ],
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build --mode production",
+    "build:dev": "vue-tsc && vite build --mode development",
+    "postbuild": "node ./scripts/dist.ts",
+    "postbuild:dev": "node ./scripts/dist.ts --dev"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@stylistic/eslint-plugin": "^5.5.0",
+    "@types/node": "^24.5.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "eslint": "^9.39.0",
+    "eslint-plugin-vue": "^10.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2",
+    "vite": "^7.1.12",
+    "vue-eslint-parser": "^10.2.0",
+    "vue-tsc": "^3.1.2"
+  },
+  "dependencies": {
+    "vue": "^3.5.22"
+  }
+}

@@ -1,0 +1,275 @@
+.css_host {
+  --color-panel-bg: rgb(233, 236, 241);
+  --color-bg: rgb(249, 250, 252);
+
+  --color-btn-bg: rgb(221, 226, 233);
+  --color-btn-hover: rgb(203, 211, 221);
+  --color-btn-active: rgb(184, 192, 207);
+  --color-btn-text: rgb(62, 64, 68);
+
+  --color-text: rgb(62, 64, 68);
+  --color-panel-text: rgb(62, 64, 68);
+
+  --color-text-inline-code-bg: rgba(114, 123, 129, 0.15);
+
+  /* # Цвета конфигуратора */
+  --color-option-hover: rgba(200, 206, 216, 0.2);
+  --color-text-comment: rgb(132, 135, 143);
+  /* комментарии в редакторе */
+  --color-text-ignore: rgb(145, 158, 168);
+  /* игнорируемое свойство */
+  --color-icon-on: green;
+  --color-icon-light: rgb(166, 177, 199);
+  --color-icon-normal: rgb(132, 135, 143);
+
+  --color-error: rgb(244, 67, 54);
+  --var-box-shadow: 0px 4px 8px 2px rgba(46, 74, 95, 0.2);
+  --var-editor-outline: 1px solid rgb(162, 179, 187);
+
+  color: var(--color-text);
+  fill: var(--color-text);
+}
+
+.css_host * {
+  box-sizing: border-box;
+}
+
+.tag_code_inline {
+  all: initial;
+  display: inline;
+  border-radius: 2px;
+  padding: 0 4px;
+  font-family: monospace;
+  background-color: var(--color-text-inline-code-bg);
+}
+
+.tag_hr {
+  margin: 8px 0;
+  color: var(--color-text-comment);
+}
+
+.btn {
+  all: initial;
+  box-sizing: border-box;
+  appearance: none;
+  display: block;
+  border: none;
+  border-radius: 4px;
+  margin: 0;
+  padding: 4px;
+  background-color: var(--color-btn-bg);
+  color: var(--color-btn-text);
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  font-family: inherit;
+  user-select: none;
+}
+
+.btn:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.btn:not(:disabled, .pressed):active {
+  transform: translateY(1px);
+}
+
+.btn:not(:disabled, .pressed):hover,
+.btn:not(:disabled, .pressed):focus-visible {
+  background-color: var(--color-btn-hover);
+}
+
+/* Активная но можно кликать */
+.btn:not(:hover).active {
+  background-color: var(--color-btn-active);
+}
+
+/* Нажатая и кликать нельзя */
+.btn.pressed {
+  cursor: default;
+  background-color: var(--color-btn-active);
+}
+
+.icon {
+  border-radius: 4px;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  user-select: none;
+}
+
+.control_panel,
+.dialog_panel {
+  position: fixed;
+  box-shadow: var(--var-box-shadow);
+  border-radius: 8px;
+  padding: 8px;
+  background-color: var(--color-panel-bg);
+  color: var(--color-panel-text);
+  fill: var(--color-panel-text);
+  display: flex;
+  z-index: 999999;
+}
+
+.control_panel {
+  top: 8px;
+  right: 8px;
+  flex-direction: row;
+  padding: 4px;
+  gap: 4px;
+}
+
+.control_panel .btn {
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+}
+
+.dialog_panel {
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  margin: 0 auto;
+  flex-direction: column;
+  max-width: 420px;
+  max-height: calc(100vh - 16px);
+  gap: 8px;
+}
+
+.dialog_panel>.header {
+  display: flex;
+  gap: 8px;
+  height: 32px;
+  align-items: center;
+  flex-direction: row;
+  flex-shrink: 0;
+}
+
+.dialog_panel>.header>.title {
+  font-weight: bold;
+}
+
+.dialog_panel>.header>.label {
+  font-size: 0.8em;
+  margin-left: auto;
+}
+
+.dialog_panel>.content {
+  flex: 1;
+  min-height: 0;
+  border-radius: 4px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  fill: var(--color-text);
+  overflow: auto;
+}
+
+.dialog_panel>.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.dialog_panel .btn {
+  height: 32px;
+  text-align: center;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.dialog_panel.dialog_error {
+  --color-panel-bg: rgb(244, 67, 54);
+  --color-panel-text: #fff;
+}
+
+.dialog_panel.dialog_error .btn {
+  --color-btn-bg: #ff9790;
+  --color-btn-hover: #fdb7b3;
+  --color-btn-text: #fff;
+}
+
+/* # Контент */
+
+.content_wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  z-index: 999999;
+}
+
+.content_navigation {
+  background-color: #fff;
+  /* синий цвет скопирован с #site-footer сайта */
+  border-right: 2px solid #3178c6;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh;
+  width: clamp(360px, 36vw, 600px);
+}
+
+.content_description {
+  background-color: #fff;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* # Навигация конфигуратора */
+
+.content_config {
+  background-color: var(--color-panel-bg);
+  height: 100vh;
+  /* Подобрано экспериментально, чтобы правая часть документации влезала в свою ширину и левая была максимальной */
+  width: clamp(420px, 42vw, 50vw);
+  /* width: clamp(400px, 50vw, 50vw); */
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.content_config>.header {
+  display: flex;
+  gap: 8px;
+  height: 32px;
+  align-items: center;
+  flex-direction: row;
+  flex-shrink: 0;
+}
+
+.content_config>.header .title {
+  font-weight: bold;
+}
+
+.content_config>.header .btn {
+  height: 32px;
+  margin-left: auto;
+  text-align: center;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.content_config>.content {
+  flex: 1;
+  min-height: 0;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  fill: var(--color-text);
+  overflow: auto;
+}
+
+/* Пресеты */
+.content_config>.footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}

@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "TSConfig Configurator",
+  "version": "1.0",
+  "description": "TSConfig Configurator (typescriptlang.org)",
+  "icons": {
+    "48": "icon-48.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content.js.map"
+      ],
+      "matches": [
+        "https://www.typescriptlang.org/*"
+      ]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.typescriptlang.org/tsconfig/"
+      ],
+      "run_at": "document_idle",
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "style.css"
+      ]
+    }
+  ]
+}
