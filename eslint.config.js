@@ -5,7 +5,7 @@ import stylistic from '@stylistic/eslint-plugin'
 import pluginVue from 'eslint-plugin-vue'
 import vueParser from 'vue-eslint-parser'
 
-const jsRueles = jsEslint.configs.recommended.rules
+const jsRules = jsEslint.configs.recommended.rules
 const tsRules = tsEslint.configs.stylisticTypeChecked
   .reduce((a, item) => ((item.rules ? (a = { ...a, ...item.rules }) : a), a), {})
 
@@ -37,7 +37,7 @@ export default defineConfig({
     vue: pluginVue
   },
   rules: {
-    ...jsRueles,
+    ...jsRules,
     ...tsRules,
     // Это правило `a === b` не установлено в jsEslint.configs.recommended и вероятно во всех плагинах.
     eqeqeq: [
